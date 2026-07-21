@@ -37,6 +37,10 @@ const lessonButtons = [...document.querySelectorAll('.lesson-check')];
 const lessonProgress = document.querySelector('#lesson-progress');
 const progressLabel = document.querySelector('#progress-label');
 const savedLessons = new Set(JSON.parse(localStorage.getItem('claude-guide-progress') || '[]'));
+let furthestLessonViewed = Math.min(
+  lessonButtons.length,
+  Math.max(0, Number(localStorage.getItem('claude-guide-viewed-progress') || 0)),
+);
 
 function updateLessonProgress() {
   lessonButtons.forEach((button) => {
@@ -45,8 +49,9 @@ function updateLessonProgress() {
     button.classList.toggle('done', done);
     button.textContent = done ? '✓ 已完成' : '完成本课';
   });
-  lessonProgress.value = savedLessons.size;
-  progressLabel.textContent = `${savedLessons.size} / 9`;
+  const displayedProgress = Math.max(savedLessons.size, furthestLessonViewed);
+  lessonProgress.value = displayedProgress;
+  progressLabel.textContent = `${displayedProgress} / ${lessonButtons.length}`;
   localStorage.setItem('claude-guide-progress', JSON.stringify([...savedLessons]));
 }
 
@@ -66,11 +71,21 @@ const lessons = [...document.querySelectorAll('.lesson')];
 function updateScrollState() {
   const scrollable = document.documentElement.scrollHeight - window.innerHeight;
   progressBar.style.width = `${scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0}%`;
-  let current = lessons[0]?.id;
+  let current;
+  let currentLessonNumber = 0;
+  const readingLine = Math.min(180, window.innerHeight * 0.45);
   lessons.forEach((lesson) => {
-    if (lesson.getBoundingClientRect().top <= 150) current = lesson.id;
+    if (lesson.getBoundingClientRect().top <= readingLine) {
+      current = lesson.id;
+      currentLessonNumber = Number(lesson.dataset.lesson);
+    }
   });
   lessonLinks.forEach((link) => link.classList.toggle('active', link.hash === `#${current}`));
+  if (currentLessonNumber > furthestLessonViewed) {
+    furthestLessonViewed = currentLessonNumber;
+    localStorage.setItem('claude-guide-viewed-progress', String(furthestLessonViewed));
+    updateLessonProgress();
+  }
 }
 
 window.addEventListener('scroll', updateScrollState, { passive: true });
