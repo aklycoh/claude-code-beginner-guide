@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="面向零基础用户的 Claude Code 中文入门指南：从安装、提问、修改代码到安全使用与会话管理。" />
+    <meta name="theme-color" content="#5b5bd6" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Claude Code 新手指南" />
+    <meta property="og:description" content="一小时，从第一次提问到独立完成任务。" />
+    <meta property="og:url" content="https://aklycoh.github.io/claude-code-beginner-guide/" />
+    <meta property="og:image" content="https://aklycoh.github.io/claude-code-beginner-guide/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>Claude Code 新手指南｜从安装到独立完成任务</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    <div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="返回顶部">
+        <span class="brand-mark">CC</span>
+        <span><strong>Claude Code</strong><small>新手学习站</small></span>
+      </a>
+      <nav class="top-nav" aria-label="主要导航">
+        <a href="#start">开始使用</a>
+        <a href="#prompt">学会提问</a>
+        <a href="#practice">实战路线</a>
+        <a href="#cheatsheet">速查表</a>
+      </nav>
+      <a class="header-cta" href="#start">从第 1 课开始</a>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span>根据 Claude Code 官方文档整理</p>
+          <h1>Claude Code<br /><em>新手指南</em></h1>
+          <p class="hero-lead">一小时，从第一次提问到独立完成任务。你不需要背命令，也不需要会写“完美提示词”——把它当作一位能读代码、改文件、运行命令并检查结果的搭档。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#start">开始学习 <span>→</span></a>
+            <a class="button secondary" href="#practice">查看 60 分钟路线</a>
+          </div>
+          <ul class="hero-facts" aria-label="课程特点">
+            <li><span>✓</span> 零基础友好</li>
+            <li><span>✓</span> Windows / macOS / Linux</li>
+            <li><span>✓</span> 可直接复制示例</li>
+          </ul>
+        </div>
+
+        <div class="terminal-card" aria-label="安装命令示例">
+          <div class="terminal-top">
+            <div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            <span>PowerShell</span>
+            <span class="live"><i></i> 准备就绪</span>
+          </div>
+          <div class="terminal-body">
+            <p class="terminal-label">01 · 安装</p>
+            <div class="command-row"><code>irm https://claude.ai/install.ps1 | iex</code><button class="copy" data-copy="irm https://claude.ai/install.ps1 | iex" aria-label="复制 Windows 安装命令">复制</button></div>
+            <p class="terminal-label">02 · 进入项目</p>
+            <div class="command-row"><code>cd 你的项目路径</code></div>
+            <p class="terminal-label">03 · 启动</p>
+            <div class="command-row"><code>claude</code><button class="copy" data-copy="claude" aria-label="复制启动命令">复制</button></div>
+            <div class="terminal-success"><span>✓</span><div><strong>就这么简单</strong><small>首次启动会引导你在浏览器登录。</small></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="course-map" aria-labelledby="course-title">
+        <div class="section-intro compact">
+          <p class="eyebrow"><span></span>学习地图</p>
+          <h2 id="course-title">四步建立正确使用习惯</h2>
+        </div>
+        <div class="steps">
+          <a href="#understand" class="step-card"><b>01</b><span class="step-icon blue">◎</span><div><strong>先理解</strong><small>它如何工作、能看到什么</small></div></a>
+          <a href="#start" class="step-card"><b>02</b><span class="step-icon violet">›_</span><div><strong>再上手</strong><small>安装、登录、第一次对话</small></div></a>
+          <a href="#prompt" class="step-card"><b>03</b><span class="step-icon orange">✦</span><div><strong>会协作</strong><small>给上下文、约束和验收标准</small></div></a>
+          <a href="#safe" class="step-card"><b>04</b><span class="step-icon green">✓</span><div><strong>能收尾</strong><small>检查差异、测试、提交与恢复</small></div></a>
+        </div>
+      </section>
+
+      <div class="content-layout">
+        <aside class="lesson-nav" aria-label="章节导航">
+          <p>课程目录</p>
+          <a href="#understand"><span>01</span>理解 Claude Code</a>
+          <a href="#start"><span>02</span>安装与首次启动</a>
+          <a href="#prompt"><span>03</span>写出有效任务</a>
+          <a href="#workflow"><span>04</span>常见工作流</a>
+          <a href="#safe"><span>05</span>权限与安全</a>
+          <a href="#memory"><span>06</span>项目说明与记忆</a>
+          <a href="#sessions"><span>07</span>会话与上下文</a>
+          <a href="#practice"><span>08</span>一小时实战</a>
+          <a href="#cheatsheet"><span>09</span>命令速查</a>
+          <div class="nav-progress"><div><span>学习进度</span><strong id="progress-label">0 / 9</strong></div><progress id="lesson-progress" value="0" max="9">0%</progress></div>
+        </aside>
+
+        <article class="lessons">
+          <section class="lesson" id="understand" data-lesson="1">
+            <div class="lesson-heading"><span>01</span><div><p>先建立心智模型</p><h2>Claude Code 到底是什么？</h2></div><button class="lesson-check" aria-label="标记第 1 课为已完成">完成本课</button></div>
+            <p class="lead">它是在终端中运行的“代理式助手”。和只给建议的聊天机器人不同，它能使用工具读取项目、搜索文件、编辑代码、运行测试和调用 Git。</p>
+            <div class="callout plain"><strong>一句话理解</strong><p>你说清目标，它自己决定先看哪些文件、做哪些修改、运行哪些检查；你可以随时打断、补充或纠正。</p></div>
+            <h3>它会不断重复一个三步循环</h3>
+            <div class="agent-loop">
+              <div><span>1</span><strong>收集上下文</strong><p>查看目录、代码、错误信息和项目约定。</p></div><i>→</i>
+              <div><span>2</span><strong>采取行动</strong><p>编辑文件、运行命令，或向你追问关键问题。</p></div><i>→</i>
+              <div><span>3</span><strong>验证结果</strong><p>运行测试、构建或检查差异，不对就继续调整。</p></div>
+            </div>
+            <h3>它默认能看到什么？</h3>
+            <div class="mini-grid">
+              <div><b>项目文件</b><p>当前目录及子目录中的内容。</p></div><div><b>终端能力</b><p>你能运行的构建、测试、Git 等命令。</p></div><div><b>Git 状态</b><p>当前分支、未提交更改和近期历史。</p></div><div><b>项目说明</b><p><code>CLAUDE.md</code> 中的规则和背景。</p></div>
+            </div>
+            <p class="source-link">官方延伸：<a href="https://code.claude.com/docs/zh-CN/how-claude-code-works" target="_blank" rel="noreferrer">Claude Code 如何工作 ↗</a></p>
+          </section>
+
+          <section class="lesson" id="start" data-lesson="2">
+            <div class="lesson-heading"><span>02</span><div><p>从零开始</p><h2>安装、登录和第一次启动</h2></div><button class="lesson-check" aria-label="标记第 2 课为已完成">完成本课</button></div>
+            <div class="notice warning"><span>!</span><div><strong>开始前确认三件事</strong><p>准备一个代码项目、可用的 Claude 订阅或 Console / 企业云访问权限，并确认网络能访问 claude.ai 与 Anthropic API。</p></div></div>
+            <div class="install-tabs" role="tablist" aria-label="操作系统">
+              <button class="os-tab active" role="tab" aria-selected="true" data-os="windows">Windows</button>
+              <button class="os-tab" role="tab" aria-selected="false" data-os="unix">macOS / Linux / WSL</button>
+              <button class="os-tab" role="tab" aria-selected="false" data-os="winget">WinGet</button>
+            </div>
+            <div class="code-card" data-panel="windows"><div><span>PowerShell</span><button class="copy" data-copy="irm https://claude.ai/install.ps1 | iex">复制</button></div><pre><code>irm https://claude.ai/install.ps1 | iex</code></pre></div>
+            <div class="code-card hidden" data-panel="unix"><div><span>Terminal</span><button class="copy" data-copy="curl -fsSL https://claude.ai/install.sh | bash">复制</button></div><pre><code>curl -fsSL https://claude.ai/install.sh | bash</code></pre></div>
+            <div class="code-card hidden" data-panel="winget"><div><span>PowerShell / CMD</span><button class="copy" data-copy="winget install Anthropic.ClaudeCode">复制</button></div><pre><code>winget install Anthropic.ClaudeCode</code></pre></div>
+            <ol class="numbered-list">
+              <li><span>1</span><div><strong>进入项目文件夹</strong><p>在终端运行 <code>cd 你的项目路径</code>。Claude Code 会以这个目录为工作范围。</p></div></li>
+              <li><span>2</span><div><strong>运行 <code>claude</code></strong><p>首次启动会打开浏览器登录。完成后，凭证会保存在系统中。</p></div></li>
+              <li><span>3</span><div><strong>先问，不急着改</strong><p>输入：“请用通俗语言说明这个项目做什么、如何启动、主要目录分别负责什么。”</p></div></li>
+            </ol>
+            <div class="notice info"><span>i</span><div><strong>Windows 新手提示</strong><p>提示符以 <code>PS C:\</code> 开头就是 PowerShell。官方推荐安装 Git for Windows，以便 Claude Code 使用 Bash 工具；没有时会改用 PowerShell。</p></div></div>
+            <p class="source-link">官方延伸：<a href="https://code.claude.com/docs/zh-CN/quickstart" target="_blank" rel="noreferrer">快速开始 ↗</a></p>
+          </section>
+
+          <section class="lesson" id="prompt" data-lesson="3">
+            <div class="lesson-heading"><span>03</span><div><p>最重要的能力</p><h2>把任务说清楚，不必写“魔法提示词”</h2></div><button class="lesson-check" aria-label="标记第 3 课为已完成">完成本课</button></div>
+            <p class="lead">把 Claude Code 当作一位刚加入项目、能力很强但需要背景信息的同事。好任务通常包含四块：目标、上下文、约束、验收。</p>
+            <div class="prompt-formula">
+              <div><span>目标</span><p>你最终想得到什么？</p></div><b>＋</b><div><span>上下文</span><p>错误、文件、现状是什么？</p></div><b>＋</b><div><span>约束</span><p>哪些不能改？遵循什么规则？</p></div><b>＋</b><div><span>验收</span><p>怎样才算完成？跑什么检查？</p></div>
+            </div>
+            <div class="before-after">
+              <div class="bad"><span>模糊</span><p>“修复登录问题。”</p></div>
+              <div class="good"><span>清楚</span><p>“登录后刷新页面会退出。请检查 <code>src/auth/</code> 的会话续期逻辑。先复现并解释原因，再写失败测试、修复并运行相关测试。不要修改数据库结构。”</p><button class="copy text-copy" data-copy="登录后刷新页面会退出。请检查 src/auth/ 的会话续期逻辑。先复现并解释原因，再写失败测试、修复并运行相关测试。不要修改数据库结构。">复制这个模板</button></div>
+            </div>
+            <h3>第一次回答不满意，直接纠正</h3>
+            <p>你不必退出重来。按 <kbd>Esc</kbd> 可立即中断；也可以直接补充：“方向不对，问题在会话续期，不是表单校验。先不要改代码，重新分析。”</p>
+            <div class="tip-strip"><span>✦</span><p><strong>最实用的提示：</strong>让 Claude 有东西可验证。给它测试用例、错误日志、预期输出或 UI 截图，并明确说“完成后运行测试”。</p></div>
+          </section>
+
+          <section class="lesson" id="workflow" data-lesson="4">
+            <div class="lesson-heading"><span>04</span><div><p>照着做即可</p><h2>六个高频工作流</h2></div><button class="lesson-check" aria-label="标记第 4 课为已完成">完成本课</button></div>
+            <div class="workflow-grid">
+              <div><span>理解项目</span><p>“概览这个代码库，说明入口、核心模块、数据流和启动方式。先不要修改。”</p></div>
+              <div><span>修复错误</span><p>“运行测试复现问题，定位根因，先解释再修复；完成后运行相关测试。”</p></div>
+              <div><span>添加功能</span><p>“先阅读相关目录并列出计划。等我确认后实现，补测试并检查现有功能。”</p></div>
+              <div><span>重构代码</span><p>“保持现有行为不变，先找风险和覆盖缺口，再分小步重构并持续测试。”</p></div>
+              <div><span>编写测试</span><p>“找出未覆盖的分支，为正常、边界和错误场景补测试，运行并修复失败项。”</p></div>
+              <div><span>审查改动</span><p>“查看当前 git diff，重点检查逻辑错误、安全、兼容性和缺失测试，不要改文件。”</p></div>
+            </div>
+            <div class="callout accent"><strong>复杂任务使用“两阶段法”</strong><p>先切换到 Plan 模式，让 Claude 阅读和规划；你确认计划后再让它实现。探索和编码分开，通常更稳。</p></div>
+            <p class="source-link">官方延伸：<a href="https://code.claude.com/docs/zh-CN/common-workflows" target="_blank" rel="noreferrer">常见工作流程 ↗</a></p>
+          </section>
+
+          <section class="lesson" id="safe" data-lesson="5">
+            <div class="lesson-heading"><span>05</span><div><p>放心使用的关键</p><h2>权限、检查点与 Git 安全习惯</h2></div><button class="lesson-check" aria-label="标记第 5 课为已完成">完成本课</button></div>
+            <div class="permissions">
+              <div><strong>Manual</strong><p>编辑文件和运行命令前询问。新手最稳妥。</p></div>
+              <div><strong>Accept edits</strong><p>自动接受文件编辑，其他高影响命令仍会询问。</p></div>
+              <div><strong>Plan</strong><p>只探索和出方案，不修改源文件。</p></div>
+              <div><strong>Auto</strong><p>由后台安全检查评估操作，适合熟悉后使用。</p></div>
+            </div>
+            <p>在会话中按 <kbd>Shift</kbd> + <kbd>Tab</kbd> 切换权限模式。修改前 Claude 会为文件创建 checkpoint；按两次 <kbd>Esc</kbd> 可回退文件编辑。</p>
+            <div class="notice danger"><span>!</span><div><strong>Checkpoint 不是万能撤销</strong><p>它只覆盖文件更改。数据库写入、部署、发消息、调用外部 API 等远程副作用无法靠 checkpoint 恢复，执行前必须看清提示。</p></div></div>
+            <h3>提交前做这 4 项检查</h3>
+            <ul class="check-list">
+              <li>要求 Claude 说明改了哪些文件、为什么改。</li>
+              <li>查看 <code>git diff</code>，不要盲目接受整块变化。</li>
+              <li>运行相关测试、类型检查或构建。</li>
+              <li>确认没有密钥、密码、个人数据进入代码或日志。</li>
+            </ul>
+          </section>
+
+          <section class="lesson" id="memory" data-lesson="6">
+            <div class="lesson-heading"><span>06</span><div><p>让它懂你的项目</p><h2>用 CLAUDE.md 保存长期规则</h2></div><button class="lesson-check" aria-label="标记第 6 课为已完成">完成本课</button></div>
+            <p>在项目根目录运行 <code>/init</code>，Claude 会引导你创建 <code>CLAUDE.md</code>。它会在以后会话中自动加载，适合存放稳定、简短、可执行的规则。</p>
+            <div class="code-card"><div><span>CLAUDE.md 示例</span><button class="copy" data-copy="# 项目概览\n- 这是一个 Next.js 电商后台\n- 核心代码在 src/，测试在 tests/\n\n# 常用命令\n- npm run dev：启动开发环境\n- npm test：运行测试\n- npm run typecheck：类型检查\n\n# 代码约定\n- 使用 TypeScript，避免 any\n- 完成改动后运行相关测试\n- 未经确认不要修改数据库结构">复制</button></div><pre><code># 项目概览
+- 这是一个 Next.js 电商后台
+- 核心代码在 src/，测试在 tests/
+
+# 常用命令
+- npm run dev：启动开发环境
+- npm test：运行测试
+- npm run typecheck：类型检查
+
+# 代码约定
+- 使用 TypeScript，避免 any
+- 完成改动后运行相关测试
+- 未经确认不要修改数据库结构</code></pre></div>
+            <div class="tip-strip"><span>✓</span><p><strong>写什么：</strong>每次都要提醒的规则、项目结构、常用命令。<br /><strong>别写什么：</strong>密钥、短期任务、长篇教程、很快过时的信息。</p></div>
+            <p class="source-link">官方延伸：<a href="https://code.claude.com/docs/zh-CN/memory" target="_blank" rel="noreferrer">管理 Claude 的记忆 ↗</a></p>
+          </section>
+
+          <section class="lesson" id="sessions" data-lesson="7">
+            <div class="lesson-heading"><span>07</span><div><p>工作不中断</p><h2>会话、上下文与恢复</h2></div><button class="lesson-check" aria-label="标记第 7 课为已完成">完成本课</button></div>
+            <div class="session-cards">
+              <div><code>claude -c</code><strong>继续最近会话</strong><p>在当前目录快速接着上次聊。</p></div>
+              <div><code>claude -r</code><strong>选择旧会话</strong><p>从历史列表中恢复某次对话。</p></div>
+              <div><code>/clear</code><strong>清空当前上下文</strong><p>开始一个干净话题。</p></div>
+              <div><code>/compact</code><strong>压缩上下文</strong><p>保留重点，释放上下文空间。</p></div>
+            </div>
+            <p>会话会保存在本地，但不同新会话不会自动继承完整聊天记录。长期规则写进 <code>CLAUDE.md</code>；长任务中可以运行 <code>/context</code> 查看空间被什么占用。</p>
+            <div class="callout plain"><strong>何时开新会话？</strong><p>话题完全变化、Claude 反复被旧讨论带偏、或上下文已经过于庞杂时。新会话前可让它先总结“已完成、未完成、关键文件和下一步”。</p></div>
+          </section>
+
+          <section class="lesson" id="practice" data-lesson="8">
+            <div class="lesson-heading"><span>08</span><div><p>学完马上练</p><h2>60 分钟实战路线</h2></div><button class="lesson-check" aria-label="标记第 8 课为已完成">完成本课</button></div>
+            <div class="timeline">
+              <div><time>0–10 分钟</time><span></span><div><strong>认识项目</strong><p>启动 Claude，询问项目用途、入口、目录结构和运行方式。要求只读、不修改。</p></div></div>
+              <div><time>10–25 分钟</time><span></span><div><strong>完成一个小修改</strong><p>选 README 文案、提示文字或一个简单函数。明确目标和不能改的范围。</p></div></div>
+              <div><time>25–40 分钟</time><span></span><div><strong>验证结果</strong><p>让 Claude 运行相关测试或构建，解释失败原因并修复。</p></div></div>
+              <div><time>40–50 分钟</time><span></span><div><strong>复查差异</strong><p>询问“改了什么、风险是什么”，查看 git diff，必要时要求精简改动。</p></div></div>
+              <div><time>50–60 分钟</time><span></span><div><strong>沉淀规则</strong><p>运行 /init，建立简洁的 CLAUDE.md；为这次任务写清晰提交说明。</p></div></div>
+            </div>
+            <div class="finish-card"><span>🎯</span><div><strong>完成标准</strong><p>你能独立启动 Claude Code、让它先理解项目、下达带验收标准的任务、检查改动并恢复会话，就已经掌握了日常使用的核心。</p></div></div>
+          </section>
+
+          <section class="lesson" id="cheatsheet" data-lesson="9">
+            <div class="lesson-heading"><span>09</span><div><p>收藏这一页</p><h2>新手命令与快捷键速查</h2></div><button class="lesson-check" aria-label="标记第 9 课为已完成">完成本课</button></div>
+            <div class="table-wrap"><table><thead><tr><th>命令 / 按键</th><th>作用</th><th>什么时候用</th></tr></thead><tbody>
+              <tr><td><code>claude</code></td><td>启动交互会话</td><td>日常进入项目</td></tr>
+              <tr><td><code>claude "任务"</code></td><td>带着任务启动</td><td>目标已经明确</td></tr>
+              <tr><td><code>claude -p "问题"</code></td><td>执行一次查询后退出</td><td>脚本或快速查询</td></tr>
+              <tr><td><code>claude -c</code></td><td>继续最近会话</td><td>接着上次工作</td></tr>
+              <tr><td><code>claude -r</code> / <code>/resume</code></td><td>选择并恢复会话</td><td>找回较早任务</td></tr>
+              <tr><td><code>/help</code></td><td>查看当前可用命令</td><td>忘记命令时</td></tr>
+              <tr><td><code>/init</code></td><td>创建项目 CLAUDE.md</td><td>首次配置项目</td></tr>
+              <tr><td><code>/doctor</code></td><td>检查安装和配置</td><td>启动或配置异常</td></tr>
+              <tr><td><code>/context</code></td><td>查看上下文占用</td><td>长会话变慢或跑偏</td></tr>
+              <tr><td><code>Esc</code></td><td>中断当前工作</td><td>方向不对时立即叫停</td></tr>
+              <tr><td><code>Shift + Tab</code></td><td>切换权限模式</td><td>规划、手动确认或自动执行</td></tr>
+              <tr><td><code>Ctrl + D</code> / <code>/exit</code></td><td>退出 Claude Code</td><td>结束会话</td></tr>
+            </tbody></table></div>
+            <h3>遇到问题，先这样排查</h3>
+            <div class="trouble-grid">
+              <div><strong>命令找不到</strong><p>重开终端，运行 <code>claude --version</code>；仍失败就执行 <code>/doctor</code> 或重新安装。</p></div>
+              <div><strong>回答开始跑偏</strong><p>按 Esc 叫停，说明哪里不对；必要时 /clear 或开新会话。</p></div>
+              <div><strong>上下文太满</strong><p>运行 <code>/context</code> 查看占用，使用 <code>/compact</code> 聚焦当前任务。</p></div>
+              <div><strong>改动太大</strong><p>要求停止、解释 diff、缩小范围；需要时双击 Esc 回退文件。</p></div>
+            </div>
+            <div class="source-box"><div><span>官方资料</span><h3>继续深入，但不必一次学完</h3><p>等基础操作熟练后，再按需要了解 Skills、MCP、Hooks、Subagents、IDE 集成和自动化。</p></div><div class="source-buttons"><a href="https://code.claude.com/docs/zh-CN/overview" target="_blank" rel="noreferrer">文档首页 ↗</a><a href="https://code.claude.com/docs/zh-CN/best-practices" target="_blank" rel="noreferrer">最佳实践 ↗</a><a href="https://code.claude.com/docs/zh-CN/commands" target="_blank" rel="noreferrer">命令参考 ↗</a></div></div>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <footer><div><span class="brand-mark">CC</span><div><strong>Claude Code 新手指南</strong><p>非官方中文学习页面，根据 Anthropic 官方文档整理。</p></div></div><p>文档会更新；具体功能与命令请以 <a href="https://code.claude.com/docs/zh-CN/overview" target="_blank" rel="noreferrer">Claude Code 官方文档</a> 为准。</p></footer>
+    <div class="toast" id="toast" role="status" aria-live="polite">已复制到剪贴板</div>
+  </body>
+</html>
